@@ -90,8 +90,9 @@ export default function CryptoAssetList() {
           placeholder="Search assets..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full sm:w-64"
+          className="w-full sm:w-64 border border-gray-300 text-sm focus-visible:ring-0 focus-visible:ring-offset-0"
         />
+
         <ToggleGroup
           type="single"
           value={filter}
@@ -120,7 +121,7 @@ export default function CryptoAssetList() {
           <motion.div
             layout
             key={asset.id}
-            className="flex items-center gap-4 p-4 bg-white border rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 cursor-pointer"
+            className="flex items-center gap-4 px-2 py-3 border-b"
           >
             <Image
               src={asset.logo}

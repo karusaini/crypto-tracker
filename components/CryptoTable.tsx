@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -28,31 +27,30 @@ export default function CryptoTable() {
       </div>
 
       {/* Table Wrapper */}
-      <Card className="p-4 shadow-sm">
-        <div className="overflow-x-auto">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>#</TableHead>
-                <TableHead className="min-w-[160px]">Name</TableHead>
-                <TableHead>Price</TableHead>
-                <TableHead>1h %</TableHead>
-                <TableHead>24h %</TableHead>
-                <TableHead>7d %</TableHead>
-                <TableHead className="text-right">Market Cap</TableHead>
-                <TableHead className="text-right">24h Volume</TableHead>
-                <TableHead className="text-right">Supply</TableHead>
-                <TableHead>7D Chart</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {assets.map((asset, index) => (
-                <CryptoRow key={asset.id} asset={asset} index={index + 1} />
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </Card>
+
+      <div className="overflow-x-auto">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>#</TableHead>
+              <TableHead className="min-w-[160px]">Name</TableHead>
+              <TableHead>Price</TableHead>
+              <TableHead>1h %</TableHead>
+              <TableHead>24h %</TableHead>
+              <TableHead>7d %</TableHead>
+              <TableHead className="text-right">Market Cap</TableHead>
+              <TableHead className="text-right">24h Volume</TableHead>
+              <TableHead className="text-right">Supply</TableHead>
+              <TableHead>7D Chart</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {assets.map((asset, index) => (
+              <CryptoRow key={asset.id} asset={asset} index={index + 1} />
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }
