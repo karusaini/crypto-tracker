@@ -134,10 +134,7 @@ export default function CryptoAssetList() {
               </div>
               <div className="text-xs text-gray-500 mb-1">{asset.symbol}</div>
               {/* Pass the sparkline data and color to MiniChart */}
-              <MiniChart
-                data={asset.sparkline ?? []}
-                color={asset.change24h >= 0 ? "#16a34a" : "#dc2626"}
-              />
+              <MiniChart symbol={asset.symbol} />
             </div>
             <div className="text-right">
               <div className="text-sm font-semibold text-gray-900">

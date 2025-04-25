@@ -16,8 +16,7 @@ export const mockAssets = [
       circulating: '19.85M BTC',
       circulatingPercent: 94.5,
       maxSupply: '21M',
-      sparkline: [93500, 93700, 94000, 93750, 93500, 93800, 93900], // Sparkline example for BTC
-
+      sparkline: generateSparkline(60000),
     },
     {
       id: 'eth',
@@ -113,7 +112,7 @@ export const mockAssets = [
       circulating: '120.71M ETH',
       circulatingPercent: 98.4,
       maxSupply: null,
-      sparkline: [0.8, 0.82, 0.83, 0.81, 0.80, 0.81, 0.82], // Sparkline for XRP
+      sparkline: generateSparkline(3200),
 
     },
 
@@ -132,7 +131,7 @@ export const mockAssets = [
       circulating: '35.4B ADA',
       circulatingPercent: 79.9,
       maxSupply: '45B',
-      sparkline: [0.8, 0.82, 0.83, 0.81, 0.80, 0.81, 0.82], // Sparkline for XRP
+      sparkline: generateSparkline(3200),
 
     },
     {
@@ -150,7 +149,7 @@ export const mockAssets = [
       circulating: '143.2B DOGE',
       circulatingPercent: null,
       maxSupply: null,
-      sparkline: [0.8, 0.82, 0.83, 0.81, 0.80, 0.81, 0.82], // Sparkline for XRP
+      sparkline: generateSparkline(135),
 
     },
     {
@@ -168,7 +167,7 @@ export const mockAssets = [
       circulating: '374M AVAX',
       circulatingPercent: 53.4,
       maxSupply: '720M',
-      sparkline: [0.8, 0.82, 0.83, 0.81, 0.80, 0.81, 0.82], // Sparkline for XRP
+      sparkline: generateSparkline(0.15),
 
     },
     {
@@ -186,7 +185,7 @@ export const mockAssets = [
       circulating: '1.31B DOT',
       circulatingPercent: null,
       maxSupply: null,
-      sparkline: [0.8, 0.82, 0.83, 0.81, 0.80, 0.81, 0.82], // Sparkline for XRP
+      sparkline: generateSparkline(0.15),
 
     },
     {
@@ -204,15 +203,27 @@ export const mockAssets = [
       circulating: '9.25B MATIC',
       circulatingPercent: 92.5,
       maxSupply: '10B',
-      sparkline: [0.8, 0.82, 0.83, 0.81, 0.80, 0.81, 0.82], // Sparkline for XRP
+      sparkline: generateSparkline(0.61),
 
       
     }  
 
 
-
-
-
     
   ]
+
+
+ 
+function generateSparkline(baseValue: number): { time: number; value: number }[] {
+  const points = 30;
+  const spark = [];
+
+  for (let i = 0; i < points; i++) {
+    const change = (Math.random() - 0.5) * 0.02; // ±1%
+    const value = baseValue * (1 + change);
+    spark.push({ time: i, value: parseFloat(value.toFixed(2)) });
+  }
+
+  return spark;
+}
   
