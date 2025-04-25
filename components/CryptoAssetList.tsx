@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import MiniChart from "./MiniChart";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 type FilterType =
   | "all"
@@ -95,7 +96,7 @@ export default function CryptoAssetList() {
           type="single"
           value={filter}
           onValueChange={(val: FilterType) => val && setFilter(val)}
-          className="flex flex-wrap gap-2"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 w-full sm:w-auto"
         >
           {FILTER_OPTIONS.map((option) => (
             <ToggleGroupItem
